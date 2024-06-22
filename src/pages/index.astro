@@ -1,5 +1,7 @@
 ---
 import '../styles/global.css'
+import Navigation from '../components/Navigation.astro'
+import Footer from '../components/Footer.astro'
 
 const pageTitle = 'Sobre mi'
 ---
@@ -15,8 +17,8 @@ const pageTitle = 'Sobre mi'
   <body>
     <h1>{pageTitle}</h1>
 
-    <a href="/">Inicio</a>
-    <a href="/about/">Sobre mi</a>
-    <a href="/blog/">Blog</a>
+    <Navigation />
+
+    <Footer />
   </body>
 </html>

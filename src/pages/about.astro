@@ -1,11 +1,13 @@
 ---
 import '../styles/global.css'
+import Navigation from '../components/Navigation.astro'
+import Footer from '../components/Footer.astro'
 
 const pageTitle = 'Acerca de mi'
 
 const identity = {
   firstName: 'Alejandro',
-  country: 'mi mundo donde solo estoy yo y TWICE.',
+  country: 'mi mundo donde solo estoy yo y TWICE',
   occupation: 'desarrollador',
   hobbies: ['escuchar música', 'intentar recrear cosas que usamos en el día a día', 'aprender', 'ayudar a los demás'],
 }
@@ -45,9 +47,8 @@ const textCase = 'uppercase'
   <body>
     <h1>{pageTitle}</h1>
 
-    <a href="/">Inicio</a>
-    <a href="/about/">Sobre mi</a>
-    <a href="/blog/">Blog</a>
+    <!-- Componente -->
+    <Navigation />
 
     <h1>Sobre mi</h1>
     <h2>... ¡y mi nuevo sitio Astro!</h2>
@@ -85,5 +86,7 @@ const textCase = 'uppercase'
     <ul>
       {skills.map((skill) => <li class="skill">{skill}</li>)}
     </ul>
+
+    <Footer />
   </body>
 </html>
