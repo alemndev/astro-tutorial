@@ -1,9 +1,11 @@
 ---
+import '../styles/global.css'
+
 const pageTitle = 'Acerca de mi'
 
 const identity = {
   firstName: 'Alejandro',
-  country: 'en otro mundo',
+  country: 'mi mundo donde solo estoy yo y TWICE.',
   occupation: 'desarrollador',
   hobbies: ['escuchar música', 'intentar recrear cosas que usamos en el día a día', 'aprender', 'ayudar a los demás'],
 }
@@ -13,6 +15,10 @@ const skills = ['HTML', 'CSS', 'JavaScript', 'C#', 'Angular', '.NET Core']
 const happy = true
 const finished = false
 const goal = 3
+
+const skillColor = 'navy'
+const fontWeight = '700'
+const textCase = 'uppercase'
 ---
 
 <html lang="en">
@@ -22,6 +28,19 @@ const goal = 3
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle}</title>
+
+    <style define:vars={{ skillColor, fontWeight, textCase }}>
+      h1 {
+        color: purple;
+        font-size: 4rem;
+      }
+      .skill {
+        color: var(--skillColor);
+        font-weight: bold;
+        font-weight: var(--fontWeight);
+        text-transform: var(--textCase);
+      }
+    </style>
   </head>
   <body>
     <h1>{pageTitle}</h1>
@@ -52,18 +71,19 @@ const goal = 3
     <p>He aquí algunos datos sobre mí:</p>
     <ul>
       <li>Me llamo {identity.firstName}.</li>
-      <li>Vivo en {identity.country} y soy un {identity.occupation}.</li>
+      <li>Vivo en {identity.country}.</li>
+      <li>También soy un {identity.occupation} al que le gusta crear cosas.</li>
       {
         identity.hobbies.length >= 2 && (
           <li>
-            Dos de mis aficiones son {identity.hobbies[0]} e {identity.hobbies[1]}
+            Dos de mis aficiones son {identity.hobbies[0]} e {identity.hobbies[1]}.
           </li>
         )
       }
     </ul>
     <p>Mis habilidades son:</p>
     <ul>
-      {skills.map((skill) => <li>{skill}</li>)}
+      {skills.map((skill) => <li class="skill">{skill}</li>)}
     </ul>
   </body>
 </html>
